@@ -2,17 +2,17 @@
 * ************** How to use this firmware - READ THIS *********************************
 *
 * Uncomment means removing the 2 // in front of #define.
-* 
+*
 * FLASHING NOTES:
 * ALL slicers (Simplify3D, Cura, Slic3r, etc) or anything else that connects to the COM port must be CLOSED for the firmware to be flash.
 * If anything is connected to the COM port when flashing it will fail, typically "access denied" is listed in the error section of the Arduino IDE.
 * You MUST use the Included Arduino IDE to flash the firmware if on Windows and if you are on a Mac or Linux follow the guide in our knowledgebase to setup your IDE to work with the firmware.
-* 
-* EZABL SETUP NOTES: 
-* If you have EZABL uncomment the mount you are using with the printer. 
-* If you have a custom/unsupported mount uncomment #define CUSTOM_MOUNT and enter your offsets 
+*
+* EZABL SETUP NOTES:
+* If you have EZABL uncomment the mount you are using with the printer.
+* If you have a custom/unsupported mount uncomment #define CUSTOM_MOUNT and enter your offsets
 * below in the CUSTOM MOUNT section. Refer to the EZABL guide to get your offsets.
-* 
+*
 * STEP 1:
 * Select the correct board from the tools menu for the printer you are flashing.
 * Read the printer title for the model you are flashing, it will show what board to select.
@@ -21,10 +21,10 @@
 * Uncomment the printer you want to flash. The printers are sorted A-Z by brand name.
 * If you are using the CR-10S DUAL board with the Ender 3 then read the specific section below on how to do this.
 *
-* STEP 3: 
+* STEP 3:
 * Select the COM port your printer is on from the Tools menu. If you do not see the COM port try
 * downloading the latest drivers from the manufacturer or TH3D site on our knowledgebase.
-* 
+*
 * STEP 4:
 * Verify you have the correct board selected, printer model uncommented, and if you are using EZOUT and/or EZABL
 * the lines you need to use them are also uncommented.
@@ -33,15 +33,15 @@
 * Once you have your settings verified click the arrow in the upper left to upload to the board.
 *
 * STEP 6:
-* Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to 
+* Reset your eeprom. You can send M502 then M500 to reset the EEPROM OR on the printer LCD go to
 * Control > Initialize EEPROM to clear out the EEPROM to defaults.
 *
 * BOOTLOADER FLASHING NOTES:
 * For flashing your bootloader with an Uno make sure to select Arduino as ISP for the programmer
-* 
+*
 * There are other features in the TH3D Extras section so look there for V6 Hotend,
 * Bootscreen settings, Titan Extruder and more. You only need to edit this file.
-* 
+*
 * ERROR NOTES:
 * If you get errors flashing READ the message it gives you and double check that you selected
 * the correct board from the Tools menu in Arduino. Turn off any AV systems and reboot the computer.
@@ -243,7 +243,7 @@
 //#define EZOUTV2_ENABLE
 
 // EZABL Probe Mounts (Ender 2 can use the same mounts as CR-10, Ender 2 Specific mounts minimize distance from probe to nozzle for max probing area)
-// If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support. 
+// If you have issues with the non-Ender 2 mounts then please print them off and switch to one of them before contacting support.
 // This is because the probeable area on the non-Ender 2 mounts is too small typically to get a good result.
 //#define ENDER2_OEM
 //#define ENDER2_V6
@@ -258,7 +258,7 @@
 //===========================================================================
 // Creality Ender 3 Options - Select 'Sanguino 1284p' from Tools > Board
 //===========================================================================
-//#define ENDER3
+#define ENDER3
 
 // If you are using our EZOut V1/V2 (connected to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
@@ -279,10 +279,10 @@
 // DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
 // Select 'Arduino Mega 2560' from Tools > Board - NOT Sanguino
 //
-// To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the 
+// To use the Ender 3 LCD with the CR-10S dual board board connect the LCD cable to EXP1 on the
 // CR-10S board but rotate it 180 degrees. The LCD end of the cable goes to EXP3 on the Ender 3 LCD.
 // You will have to force it into the EXP1 but it will fit and work.
-// 
+//
 // EZABL and EZOut support are still supported just use the lines above this comment section.
 //=================================================================================================
 //#define ENDER3_DUALBOARD
@@ -443,7 +443,7 @@
 // Default is 3 which gives you 3x3 grid for a total of 9 points. STICK WITH ODD NUMBERS
 #define EZABL_POINTS 3
 
-// If you want to probe in on the bed more than 15mm change this below. 
+// If you want to probe in on the bed more than 15mm change this below.
 // Do not use 30mm for the Standard CR-10/s or the S4 as you will be on the bed screws.
 // Try 50mm to avoid the binder clips if you use them. Do NOT go under 15mm here.
 // You can do down to 10mm on the Wanhao i3 since it cannot print on the entire bed.
@@ -547,7 +547,7 @@
 //#define FAN_FIX
 
 // Use your own printer name
-//#define USER_PRINTER_NAME "CHANGE ME" 
+#define USER_PRINTER_NAME "Sprocket"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
@@ -563,10 +563,16 @@
 // Disable Bootscreen completely
 //#define DISABLE_BOOT
 
+// User-supplied custom bootscreen
+// Create your own 1-bit black and white bitmap image @ 128px by 64px and use the converter
+// at http://marlinfw.org/tools/u8glib/converter.html to generate code from it.
+// Save the resulting file as _BootscreenCUSTOM.h and uncomment the following line
+#define USER_CUSTOM_BOOT
+
 // ADVANCED FEATURES (NOT SUPPORTED BY TH3D)  ------
 
 // If you want to use manual mesh leveling you can enable the below option. TH3D does NOT provide free support
-// to help you use this feature. This is for generating a MANUAL mesh WITHOUT a probe. 
+// to help you use this feature. This is for generating a MANUAL mesh WITHOUT a probe.
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html
 // If used with a 1284P board the bootscreen will be disabled to save space.
 //#define MANUAL_MESH_LEVELING
@@ -599,7 +605,7 @@
 #define LINEAR_ADVANCE_K 0
 
 // These are new motion control options for jerk and acceleration.
-// These are very new features so if you notice issues disable them. 
+// These are very new features so if you notice issues disable them.
 //#define NEW_JERK_CONTROL
 //#define NEW_ACCELERATION_CONTROL
 

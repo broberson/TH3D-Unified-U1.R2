@@ -43,9 +43,11 @@
         #include "_BootscreenTORNADO.h"
       #elif ENABLED(ENDER_BOOT)
         #include "_BootscreenENDER.h"
+      #elif ENABLED(USER_CUSTOM_BOOT)
+        #include "_BootscreenCUSTOM.h"
       #else
         #include "_Bootscreen.h"
-      #endif  
+      #endif
     #endif
 
     #ifndef CUSTOM_BOOTSCREEN_TIMEOUT
