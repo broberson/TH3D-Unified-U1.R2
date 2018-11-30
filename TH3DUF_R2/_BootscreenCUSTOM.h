@@ -1,7 +1,7 @@
 #ifndef BOOTSCREEN_H_
 #define BOOTSCREEN_H_
 
-#define CUSTOM_BOOTSCREEN_TIMEOUT 2000  // milliseconds
+#define CUSTOM_BOOTSCREEN_TIMEOUT 5000  // milliseconds
 #define CUSTOM_BOOTSCREEN_BMPWIDTH 128  // Width in pixels
 #define CUSTOM_BOOTSCREEN_BMPHEIGHT 64  // Height in pixels
 const unsigned char custom_start_bmp[] PROGMEM = {
