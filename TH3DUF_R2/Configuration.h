@@ -594,13 +594,13 @@
 //#define ENDER_BOOT
 
 // Disable Bootscreen completely
-#define DISABLE_BOOT
+//#define DISABLE_BOOT
 
 // User-supplied custom bootscreen
 // Create your own 1-bit black and white bitmap image @ 128px by 64px and use the converter
 // at http://marlinfw.org/tools/u8glib/converter.html to generate code from it.
 // Save the resulting file as _BootscreenCUSTOM.h and uncomment the following line
-//#define USER_CUSTOM_BOOT
+#define USER_CUSTOM_BOOT
 
 // ADVANCED FEATURES (NOT SUPPORTED BY TH3D)  ------
 
