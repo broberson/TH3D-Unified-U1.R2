@@ -1685,7 +1685,7 @@
 #define ENDSTOP_NOISE_FILTER
 
 #if ENABLED(SLIM_1284P)
-  #define SLIM_LCD_MENUS
+  //#define SLIM_LCD_MENUS
   #if ENABLED(LINEAR_ADVANCE)
     #define DISABLE_BOOT
   #endif
